@@ -32,10 +32,22 @@ Each CSV contains turn-by-turn data including:
 - Military attrition
 - Full model reasoning/rationales
 
+## Crisis renderer
+
+Replay tournament CSVs on a scenario-specific 2D map (territory, public statements, private reasoning, signals, planned actions, accidents, and nuclear/conventional animations).
+
+```bash
+python3 serve_renderer.py
+```
+
+Then open the printed URL (default port `8765`). Pick a log from the dropdown or upload any Kahn CSV. Play/pause steps through turns.
+
+The map skin follows the scenario (`strait`, `resource race`, `first strike`, `standoff`, `regime survival`, alliance watchers, etc.).
+
 ## Requirements
 
 - Python 3.10+
-- API keys for Anthropic, OpenAI, and Google (Gemini)
+- API keys for Anthropic, OpenAI, and Google (Gemini) (only needed to *run* new games, not to replay logs)
 
 ## Citation
 

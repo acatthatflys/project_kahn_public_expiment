@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Kahn — Crisis Renderer</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>PROJECT KAHN</h1>
+        <div class="sub">Frontier AI nuclear-crisis replay</div>
+      </div>
+      <select id="gameSelect"><option>Loading games…</option></select>
+      <label class="meta">or upload CSV <input type="file" id="fileIn" accept=".csv" /></label>
+      <span id="scenarioBadge" class="badge">—</span>
+      <span id="statusBadge" class="badge">idle</span>
+    </header>
+
+    <div class="stage">
+      <aside class="col" id="colA">
+        <div class="card">
+          <h3 class="side-a">State A</h3>
+          <div class="meta" id="modelA">—</div>
+          <div class="stat-row"><span>Conventional</span><span id="aConv">—</span></div>
+          <div class="bar"><div class="a" id="aConvBar" style="width:50%"></div></div>
+          <div class="stat-row"><span>Nuclear</span><span id="aNuc">—</span></div>
+          <div class="bar"><div class="a" id="aNucBar" style="width:50%"></div></div>
+        </div>
+        <div class="card">
+          <h3>Public statement</h3>
+          <div class="quote" id="aPublic">—</div>
+        </div>
+        <div class="card">
+          <h3>Planned action / signal</h3>
+          <div id="aActionChip" class="action-chip">—</div>
+          <div class="meta" id="aSignal">signal: —</div>
+          <div class="meta" id="aForecast">forecast: —</div>
+        </div>
+        <div class="card">
+          <h3>Thought process</h3>
+          <div class="thought" id="aThought">Load a game to begin.</div>
+        </div>
+      </aside>
+
+      <div class="map-wrap">
+        <canvas id="map"></canvas>
+        <div id="fx" class="flash"></div>
+        <div id="toast" class="toast" hidden></div>
+        <div class="map-legend">
+          <span><span class="dot" style="background:var(--a)"></span>State A</span>
+          <span><span class="dot" style="background:var(--b)"></span>State B</span>
+          <span><span class="dot" style="background:var(--gold)"></span>Disputed / prize</span>
+          <span id="terrLabel">Territory 0.0</span>
+        </div>
+      </div>
+
+      <aside class="col" id="colB">
+        <div class="card">
+          <h3 class="side-b">State B</h3>
+          <div class="meta" id="modelB">—</div>
+          <div class="stat-row"><span>Conventional</span><span id="bConv">—</span></div>
+          <div class="bar"><div class="b" id="bConvBar" style="width:50%"></div></div>
+          <div class="stat-row"><span>Nuclear</span><span id="bNuc">—</span></div>
+          <div class="bar"><div class="b" id="bNucBar" style="width:50%"></div></div>
+        </div>
+        <div class="card">
+          <h3>Public statement</h3>
+          <div class="quote" id="bPublic">—</div>
+        </div>
+        <div class="card">
+          <h3>Planned action / signal</h3>
+          <div id="bActionChip" class="action-chip">—</div>
+          <div class="meta" id="bSignal">signal: —</div>
+          <div class="meta" id="bForecast">forecast: —</div>
+        </div>
+        <div class="card">
+          <h3>Thought process</h3>
+          <div class="thought" id="bThought">Load a game to begin.</div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <button id="btnPrev">◀</button>
+      <button id="btnPlay" class="primary">Play</button>
+      <button id="btnNext">▶</button>
+      <input type="range" id="turnSlider" min="0" max="0" value="0" class="timeline" />
+      <span class="meta" id="turnLabel">Turn 0 / 0</span>
+      <label class="meta">speed
+        <select id="speed">
+          <option value="1800">slow</option>
+          <option value="900" selected>normal</option>
+          <option value="400">fast</option>
+        </select>
+      </label>
+    </footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
